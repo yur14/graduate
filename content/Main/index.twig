@@ -1,0 +1,41 @@
+<header>
+    <h1>{{ header }}</h1>
+</header>
+<div class="button"><a class="button" href="{{ thisHost }}?/main/question">Задать вопрос</a></div>
+<section class="cd-faq">
+    <ul class="cd-faq-categories">
+        {% for category in categories %}
+            {% if category['id'] == categories|first['id'] %}
+                <li><a class="selected" href="#{{ category['id'] }}">{{ category['title'] }}</a></li>
+            {% else %}
+                <li><a href="#{{ category['id'] }}">{{ category['title'] }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul> <!-- cd-faq-categories -->
+    <div class="cd-faq-items">
+        {% for category in categories %}
+            <ul id="{{ category['id'] }}" class="cd-faq-group">
+                <li class="cd-faq-title"><h2>{{ category['title'] }}</h2></li>
+                {% for question in questions %}
+                    {% if question['hidden'] == 0 %}
+                    {% if question['category'] == category['id'] %}
+                        <li>
+                            <a class="cd-faq-trigger" href="#0">{{ question['question'] }}</a>
+                            <div class="cd-faq-content">
+                                <p>{{ question['answers'] }}</p>
+                            </div> <!-- cd-faq-content -->
+                        </li>
+                    {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </ul> <!-- cd-faq-group -->
+        {% endfor %}
+    </div> <!-- cd-faq-items -->
+    <a href="#0" class="cd-close-panel">Close</a>
+</section> <!-- cd-faq -->
+<div style="height: 500px"></div>
+<script src="js/jquery-2.1.1.js"></script>
+<script src="js/jquery.mobile.custom.min.js"></script>
+<script src="js/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>
