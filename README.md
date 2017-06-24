@@ -1,6 +1,6 @@
-Дипломная работа по PHP нетология
+Диплом FAQ
 =====================
-###### Симчук Юрий
+
 #### ***Ссылка***
  * [Рабочий вариант](http://university.netology.ru/user_data/simchuk/graduate/public/)
 
